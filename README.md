@@ -1,5 +1,6 @@
 <h1>esp8266flow</h1>
 <p></p>Web server w/ backend</p>
+![Flow Filer](https://github.com/user-attachments/assets/62e82e44-5789-45bb-bf61-fb8769428e3e)
 
 <b>NOTE: If main.py is the root dir of the micropython device, the file will run on startup! Only for standalone operation</b>
 
