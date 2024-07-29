@@ -1,32 +1,67 @@
-# esp8266flow
-Web server w/ backend
+<h1>esp8266flow</h1>
+<p></p>Web server w/ backend</p>
 
-NOTE: If main.py is the root dir of the micropython device, the file will run on startup! Only for standalone operation
-    Launch main.py form REPL for testing
-    In main Rx loop, enter any command in this format: {"command": ["arg1","arg2"]}
-    Once flags permit, the server can be started: {"server": []}
-    The main Rx loop can be ended with: {"end": []}
+<b>NOTE: If main.py is the root dir of the micropython device, the file will run on startup! Only for standalone operation</b>
 
-[INSTALL]
+>Launch main.py form REPL for testing
+>
+>In main Rx loop, enter any command in this format: {"command": ["arg1","arg2"]}
+>
+>Once flags permit, the server can be started: {"server": []}
+>
+>The main Rx loop can be ended with: {"end": []}
 
-Download all files and directories onto the micropython device (except main.py unless device is ready for standalone operation)
-Run main.py from REPL capable IDE os that it runs on the micropython device
+---
+
+## [INSTALLING & RUN]
+
+Download all files and directories onto the micropython device **(except main.py unless device is ready for standalone operation)**
+
+Run main.py from REPL capable IDE so that it runs on the micropython device
+
+---
+
+## [MAIN ENTRY]
+
+1. On start, PIN 0 is checked ( default is HIGH )
+    - LOW -> UART
+    - HIGH -> REPL ( USB )
+2. Flags are updated
+    - online
+    - updown
+    - serial
+3. Optionally a configuration is loaded ( NOT FUNCTIONAL )
+4. Main Rx loop starts and takes commands over REPL ( USB ) or UART
 
 
-[MAIN ENTRY]
+## [COMMANDS]
+<details>
+<summary><h3>Rx loop commands</h3></summary>
+|  Command  | Arguments | description |
+|-----------|-----------|-------------|
+| flags     |    0,1    | device status |
+| interface |    0,1    | interface configuration |
+| scan      |     0     | scan for networks |
+| connect   |     2     | connect to network |
+| disconnect|     0     | disconnect form network |
+| server    |     0     | start the webserver |
+| end       |     0     | end the Rx loop |
+</details>
 
-1: On start, PIN 0 is checked. LOW >> UART : HIGH >> USB
-    (default is HIGH)
+Enter a command ( and args ) in JSON format. Example:
+```
+[RxLoop] Type here: {"flags":[]}
+```
+Device reponds in same format. Example:
+```
+{"flags": ["1", "0", "1", "1", "1"]}
+```
+The interface must be up to scan for networks:
+```
+[RxLoop] Type here: {"flags": ["updown"]}
+{"updown": ["1"]}
+```
 
-2: Flags are updated
-
-3: Optionally a configuration is loaded
-
-4: Main Rx loop starts and takes commands over REPL(USB) or UART
-
-
-[COMMANDS]
-The following command are available in the main Rx loop
 
 Flags:
 {"flags":[]}
