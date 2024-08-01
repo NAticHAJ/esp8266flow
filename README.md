@@ -15,7 +15,7 @@
 
 ## [INSTALLING & RUN]
 
-Download all files and directories onto the micropython device **(except main.py unless device is ready UART operation)**
+Download all files and directories in [Flow](/Flow/) onto the micropython device **~~(except main.py unless device is ready UART operation)~~** BUG: KEEP Pin 0 NC!
 
 Run main.py from REPL capable IDE so that it runs on the micropython device
 
