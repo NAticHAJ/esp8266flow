@@ -1,0 +1,13 @@
+1: Upload buffer allocation
+1: Large file unreliable write
+
+-------------------------------------------------------
+
+1:
+Uploading a file larger than the available memory will cause the device to crash
+
+
+2:
+Uploading a large file (close to but below the memory limit) sometimes
+will write and list, but no file is available. The excact behaviour is unknown
+File size is thus checked and limited to 15KB by .js
