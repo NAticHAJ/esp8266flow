@@ -30,7 +30,6 @@ def parse(query):
         return nic.scan(query[switch])
     
     # {"connect": ["mySSID", "myPassword"]}
-    # {"connect": ["intetnet", "Brugsanvisning"]}
     elif switch == "connect":
         return nic.connect(query[switch])
     
