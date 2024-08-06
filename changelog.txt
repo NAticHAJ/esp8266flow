@@ -4,3 +4,8 @@ Initial upload and structuring. Some minor changes
 
 31/07/24: Created changelog.txt
 Update readme.md to reflect files location
+
+06/08/24: Project restructuring
+main.py now only imports and calls project
+Fragmented buffer = read CAP increased from ~6KB to ~15KB
+Memory cleanup
